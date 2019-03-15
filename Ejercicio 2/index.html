@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Ejercicio 2 - Nicolas Unyicio</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+@media (max-width: 600px) {
+th, td {
+	font-size: 11px;
+}
+button.btn {
+	font-size: 12px;
+	padding: 4px 3px;
+}
+}
+</style>
+	</head>
+	<body ng-app="appnumerodos">
+<header class="container-fluid bg-info">
+      <div class="row">
+    <div class="container">
+          <div class="row">
+        <div class="col-12 pt-2 pb-2 text-center">
+              <p class="m-0 blanco">Ejercicio N°2 - Nicolás Unyicio</p>
+            </div>
+      </div>
+        </div>
+  </div>
+    </header>
+<div ng-controller="tablausuarios" class="container mt-5 mb-5">
+      <div class="row">
+    <div class="col-12 text-center mb-2">
+          <h1 class="font22">Tabla de Usuarios</h1>
+        </div>
+  </div>
+      <div class="row">
+    <div class="col-12">
+          <div class="input-group mb-3">
+        <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon3">Filtrar Usuarios: </span> </div>
+        <input type="text" class="form-control" name="busqueda"  ng-model="buscar" placeholder="Buscar">
+      </div>
+        </div>
+    <div class="col-12 mb-4 text-right">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalagrega"> Agregar Usuario </button>
+        </div>
+    <div class="modal fade" id="modalagrega" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+              <div class="modal-header">
+            <h5 class="modal-title">Nuevo Usuario</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+          </div>
+              <div class="modal-body">
+            <div class="form-group">
+                  <label for="exampleInputEmail1">Nombre:</label>
+                  <input type="text"  class="form-control" ng-model="nuevoUsuario.nombre">
+                </div>
+            <div class="form-group">
+                  <label for="exampleInputEmail1">Telefono:</label>
+                  <input type="text"  class="form-control" ng-model="nuevoUsuario.telefono">
+                </div>
+            <div class="form-group">
+                  <label for="exampleInputEmail1">Email:</label>
+                  <input type="text"  class="form-control" ng-model="nuevoUsuario.email">
+                </div>
+            <div class="form-group">
+                  <label for="exampleInputEmail1">Empresa:</label>
+                  <input type="text"  class="form-control" ng-model="nuevoUsuario.empresa">
+                </div>
+            <div class="form-group">
+                  <label for="exampleInputEmail1">Puesto:</label>
+                  <input type="text"  class="form-control" ng-model="nuevoUsuario.puesto">
+                </div>
+          </div>
+              <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="agregarUsuario()">Agregar</button>
+          </div>
+            </div>
+      </div>
+        </div>
+    <div class="col-12">
+          <div class="table-responsive">
+        <table class="table">
+              <thead class="thead-dark">
+            <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Telefono</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Empresa</th>
+                  <th scope="col">Puesto</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+          </thead>
+              <tbody>
+            <tr ng-repeat="usuario in usuarios | filter:buscar">
+                  <th>{{$index}}</th>
+                  <td>{{usuario.nombre}}</td>
+                  <td>{{usuario.telefono}}</td>
+                  <td>{{usuario.email}}</td>
+                  <td>{{usuario.empresa}}</td>
+                  <td>{{usuario.puesto}}</td>
+                  <td><button class="btn btn-primary" data-toggle="modal" data-target="#modaledita" ng-click="editarUsuario(usuario)"><span class="d-none d-sm-none d-md-inline-block">Editar</span> <i class="far fa-edit"></i></button>
+                <button class="btn btn-danger" ng-click="borrarUsuario($index)"><span class="d-none d-sm-none d-md-inline-block">Borrar</span> <i class="far fa-trash-alt"></i></button></td>
+                </tr>
+          </tbody>
+            </table>
+      </div>
+        </div>
+    <div class="modal fade" id="modaledita" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+              <div class="modal-header">
+            <h5 class="modal-title">Editar Usuario</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+          </div>
+              <div class="modal-body">
+            <div class="form-group">
+                  <label for="exampleInputEmail1">Nombre:</label>
+                  <input type="text"  class="form-control" ng-model="nuevoUsuario.nombre">
+                </div>
+            <div class="form-group">
+                  <label for="exampleInputEmail1">Telefono:</label>
+                  <input type="text"  class="form-control" ng-model="nuevoUsuario.telefono">
+                </div>
+            <div class="form-group">
+                  <label for="exampleInputEmail1">Email:</label>
+                  <input type="text"  class="form-control" ng-model="nuevoUsuario.email">
+                </div>
+            <div class="form-group">
+                  <label for="exampleInputEmail1">Empresa:</label>
+                  <input type="text"  class="form-control" ng-model="nuevoUsuario.empresa">
+                </div>
+            <div class="form-group">
+                  <label for="exampleInputEmail1">Puesto:</label>
+                  <input type="text"  class="form-control" ng-model="nuevoUsuario.puesto">
+                </div>
+          </div>
+              <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="editarUsuario(usuario)">Editar</button>
+          </div>
+            </div>
+      </div>
+        </div>
+  </div>
+    </div>
+<script src="js/jquery-3.3.1.min.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script> 
+<script src="js/funciones.js"></script>
+</body>
+</html>
