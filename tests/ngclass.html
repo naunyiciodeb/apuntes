@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tests</title>
+    <div ng-app="random">
+        <div ng-controller="miControlador">
+            <input type="checkbox" ng-model="dato1"> Mostrar
+            <input type="checkbox" ng-model="dato2"> Ocultar
+            <h3 ng-show="dato1">@frontendlabs 1</h3>
+            <h3 ng-hide="dato2">@frontendlabs 2</h3>
+         </div>
+    </div>
+</head>
+
+<body>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
+    <script>
+        angular.module('random', []).controller('miControlador', function ($scope) {
+            $scope.personas = ['Personax', 'Personay', 'Personaz'];
+        })
+    </script>
+</body>
+
+</html>

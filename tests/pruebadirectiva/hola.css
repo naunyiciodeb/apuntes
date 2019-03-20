@@ -1,0 +1,32 @@
+/*
+    Metodología BEM:
+        * Bloque
+        * Elemento
+        ^ Modificador
+
+    <div class="botonera">
+        <button class="botonera__boton">
+        <button class="botonera__boton botonera__boton--error">
+    </div>
+*/
+
+.botonera{
+    /* Layout */
+}
+
+.botonera__boton{
+    /* Boton mobile first */
+    margin: 1em; 
+}
+
+/* 
+    ... Breakpoints para tablet o desktop ... 
+*/
+
+.botonera__boton--rojo{
+    /* Especificaciones */
+    color: peru;
+}
+
+
+

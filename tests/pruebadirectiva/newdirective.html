@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testDirective">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body ng-controller="testDir">
+    <div class="container">
+        <p> {{ text }}</p>
+        <form-directive
+            text="Formulario con Directiva"
+            nameinput="true"
+            namelabel="Nombre:"
+            emailinput="true"
+            emaillabel="Email:"
+            subjetinput="true"
+            subjetlabel="Asunto:"
+            message="true"
+        ></form-directive>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
+    <script>
+        angular.module('testDirective', [])
+        .controller('testDir', function ($scope, $http) {
+            $scope.textoFalopa = "Hola, es una prueba";
+            $http.get('https://jsonplaceholder.typicode.com/photos').then(function (servidor) {
+		// Prueba en la consola
+		console.log(servidor.data);
+		// Especifico donde esta el array para luego pasarlo al ng-repeat
+		$scope.imagenes = servidor.data;
+	});
+        })
+        .directive('formDirective', function () {
+            return {
+                restrict: "EA",
+                templateUrl: './template.html',
+                scope: {
+                    text: '@',
+                    nameinput: '=',
+                    namelabel:'@',
+                    emailinput: '=',
+                    emaillabel:'@',
+                    subjetinput: '=',
+                    subjetlabel:'@',
+                    message: '='
+                },
+                link: function(scope) {
+                    console.log(scope);
+                }
+            };
+        });
+
+    </script>
+</body>
+
+</html>
