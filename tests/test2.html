@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+   <meta charset="UTF-8">
+   <title>hola mundo en Angular</title>
+</head>
+<body ng-controller="controlador">
+   
+   <input type="text" ng-model="campotexto">
+   <br />
+   {{ campotexto }} - {{ camposelect }}
+   <br />
+   <select ng-model="camposelect">
+      <option value="uno">1</option>
+      <option value="dos">2</option>
+   </select>
+   <input type="button" ng-click="campotexto='Hola'" value="Cambiar a Hola">
+   
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
+   <script>
+   angular.module('test', []).controller('controlador', function ($scope){
+        $scope.campotexto = 'Texto que cambia';
+        $scope.camposelect = 'Seleccion que cambia';
+   });
+   </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Ejercicio 1 - Nicolas Unyicio</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+.blanco {
+	color: #ffffff;
+}
+.font22 {
+	font-size: 22px;
+}
+</style>
+</head>
+<body ng-app="appnumerouno">
+<header class="container-fluid bg-info">
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pt-2 pb-2 text-center">
+          <p class="m-0 blanco">Ejercicio N°1 - Nicolás Unyicio</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div ng-controller="vistaimagenes" class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-12 text-center mb-2">
+      <h1 class="font22">Album de Fotos</h1>
+    </div>
+    <div class="col-12">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon3">Filtrar Album: </span> </div>
+        <input type="text" class="form-control" name="busqueda"  ng-model="buscar" placeholder="Buscar">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-sm-6 col-12 mt-3 mb-3 text-center" ng-repeat="imagen in imagenes | filter:buscar | limitTo:cantidad"> <img src="{{imagen.thumbnailUrl}}" class="img-fluid w-100" alt="{{imagen.title}}">
+      <h4 class="mt-3">Foto N° {{$index}}</h4>
+      <hr>
+      <p>{{imagen.title}} </p>
+      <a href="{{imagen.url}}" target="_blank" class="btn btn-info">Ver Foto</a> </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script> 
+<script src="js/funciones.js"></script>
+</body>
+</html>

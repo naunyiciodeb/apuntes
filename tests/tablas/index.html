@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+
+    <link rel="stylesheet" href="style.css">
+  <title>Prueba App</title>
+</head>
+
+<body ng-app="testable-app">
+  <div class="container mt-5" ng-controller="tablausuarios">
+    <div class="row">
+        <div class="col-12 mb-4">
+            <input type="text" class="form-control" name="busqueda" ng-model="buscar" placeholder="Buscar">
+          </div>
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th ng-click="sort($index)">#</th>
+                <th ng-click="sort('nombre')">Nombre</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Empresa</th>
+                <th>Puesto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="usuario in usuarios|orderBy:sortClick:reverse|filter:buscar">
+                <th>{{$index}}</th>
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.telefono}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.empresa}}</td>
+                <td>{{usuario.puesto}}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
+ <script src="dirPagination.js"></script>
+  <script>
+    angular.module('testable-app', []).controller('tablausuarios', function ($scope) {
+      // Buscador de Usuarios
+      $scope.buscar = '';
+      // Orden de usuarios
+      $scope.sort = function(nombrellave){
+        $scope.sortClick = nombrellave;   
+        $scope.reverse = !$scope.reverse;
+        }
+      // Usuarios
+      $scope.usuarios = [
+        {
+          nombre: "A",
+          telefono: "44445555",
+          email: "test@test.com",
+          empresa: "Empresa",
+          puesto: "Puesto"
+        },
+        {
+          nombre: "C",
+          telefono: "777777",
+          email: "rest@test.com",
+          empresa: "debdebdbe",
+          puesto: "jjsjsjs"
+        },
+        {
+          nombre: "D",
+          telefono: "777777",
+          email: "rest@test.com",
+          empresa: "debdebdbe",
+          puesto: "jjsjsjs"
+        },
+        {
+          nombre: "Z",
+          telefono: "777777",
+          email: "rest@test.com",
+          empresa: "debdebdbe",
+          puesto: "jjsjsjs"
+        },
+      ];
+    });
+  </script>
+</body>
+
+</html>

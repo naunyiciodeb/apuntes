@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .activo {
+            color: chartreuse;
+        }
+
+        .inactivo {
+            color: crimson;
+        }
+
+        .sinAprobar {
+            color: darkgoldenrod;
+        }
+    </style>
+</head>
+
+<body ng-app="pruebaactivo">
+    <div ng-controller="activos">
+        <p ng-repeat="usuario in usuarios">El usuario : {{ usuario.nombre }} {{ usuario.apellido }} esta {{ usuario.estado }}. <input type="button" ng-click="activar()" value="¿Activar?"></p>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
+    <script>
+        angular.module('pruebaactivo', []).controller('activos', function ($scope) {
+            $scope.usuarios = [{
+                nombre: "Nicolas",
+                apellido: "Unyicio",
+                activo: true
+            },
+            {
+                nombre: "Peron",
+                apellido: "Liberal",
+                activo: true
+            },
+            {
+                nombre: "Marci",
+                apellido: "Zurdo",
+                activo: true
+            }];
+         
+            if (activo == ture){
+                
+            };
+            $scope.activar = function () {
+                $scope.usuarios = {};
+            };
+
+        });
+
+    </script>
+</body>
+
+</html>

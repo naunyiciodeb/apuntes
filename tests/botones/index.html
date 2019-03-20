@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Prueba App</title>
+</head>
+
+<body ng-app="testBtn-app">
+  <div class="container mt-5 mb-4" ng-controller="selectClass">
+      <div class="col-12 mt-3">
+      <h2>Colores de Botones</h2>
+      <hr>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="primary" size="medium" text="Primary">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="secondary" size="medium" text="Secondary">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="active" size="medium" text="Active">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="danger" size="medium" text="Danger">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="warning" size="medium" text="Warning">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-4">
+      <h2>Tamaño de Botones</h2>
+      <hr>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="primary" size="small" text="Small">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="primary" size="medium" text="Medium">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="primary" size="large" text="Large">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="primary" size="xxl" text="XXL">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-4">
+      <h2>Largo de Botones</h2>
+      <hr>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="primary" size="medium" padding="small-w" text="Small-W">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="primary" size="medium" padding="medium-w" text="Medium-W">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="primary" size="medium" padding="large-w" text="Large-W">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-4">
+      <h2>Alto de Botones</h2>
+      <hr>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="primary" size="medium" padding="small-y" text="Small-W">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="primary" size="medium" padding="medium-y" text="Medium-W">
+      </deb-button>
+    </div>
+    <div class="col-12 mt-3">
+      <deb-button color="primary" size="medium" padding="large-y" text="Large-W">
+      </deb-button>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
+  <script>
+    angular.module('testBtn-app', [])
+      .controller('selectClass', function ($scope) {
+      })
+      .directive('debButton', function () {
+        return {
+          restrict: 'E',
+          scope: {
+            text: '@',
+            color: '@',
+            size: '@',
+            padding: '@',
+            disable: '=',
+            icon: '@'
+          },
+          template: '<button class="btn {{color}} {{size}} {{padding}} {{active}}"> {{text}} </button>',
+          link: function (scope) {
+
+          }
+        }
+      });
+  </script>
+</body>
+
+</html>

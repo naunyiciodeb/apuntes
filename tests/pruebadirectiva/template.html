@@ -1,0 +1,35 @@
+<form method="post">
+    <h1>{{text}}</h1>
+    <hr>
+    <div class="form-group" ng-show="nameinput">
+        <label class="control-label" for="name">
+            {{namelabel}}
+        </label>
+        <input class="form-control" id="name" name="name" type="text" />
+    </div>
+    <div class="form-group" ng-show="emailinput">
+        <label class="control-label" for="email">
+            {{emaillabel}}
+        </label>
+        <input class="form-control" id="email" name="email" type="text" />
+    </div>
+    <div class="form-group" ng-show="subjetinput">
+        <label class="control-label" for="subject">
+            {{subjetlabel}}
+        </label>
+        <input class="form-control" id="subject" name="subject" type="text" />
+    </div>
+    <div class="form-group" ng-show="message">
+        <label class="control-label" for="message">
+            {{messagelabel}}
+        </label>
+        <textarea class="form-control" cols="40" id="message" name="message" rows="10"></textarea>
+    </div>
+    <div class="form-group" ng-show="">
+        <div>
+            <button class="btn btn-primary" name="submit" type="submit">
+                Enviar
+            </button>
+        </div>
+    </div>
+</form>

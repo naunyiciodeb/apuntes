@@ -1,0 +1,84 @@
+/* GENERAL */
+
+.btn {
+    border:0;
+  }
+
+/* SIZES */
+
+.small {
+    font-size: 13px;
+}
+.medium {
+    font-size: 16px;
+}
+.large {
+    font-size: 19px
+}
+.xxl {
+    font-size: 23px
+}
+
+/* COLOR */
+
+.primary {
+    background-color:#23609f;
+    color:#ffffff ;
+}
+.secondary {
+    background-color:#ececec;
+    color:#000000 ;
+}
+.active {
+    background-color:#6eb812;
+    color:#ffffff ;
+}
+.danger {
+    background-color:#FE2E2E;
+    color:#ffffff ;
+}
+.warning {
+    background-color:#fdfd23;
+    color:#000000 ;
+}
+.primary:hover, .active:hover, .denger:hover{
+    color:#f1f1f1;
+}
+.secondary:hover, .warning:hover{
+    color:#3a3a3a;
+}
+
+/* WIDTH */
+
+.small-w {
+    padding-left:10px;
+    padding-right:10px;
+}
+.medium-w {
+    padding-left:15px;
+    padding-right:15px;
+}
+.large-w {
+    padding-left:20px;
+    padding-right:20px;
+}
+
+/* HEIGHT */
+
+.small-y {
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.medium-y {
+    padding-top:7x;
+    padding-bottom:7px;
+}
+.large-y {
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+
+buttom.disable {
+    cursor: not-allowed;
+}

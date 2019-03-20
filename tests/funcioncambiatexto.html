@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app="hola">
+    <div ng-controller="pruebafuncion">
+        <p>{{ textoacambiar }}</p>
+        <input type="button" ng-click="funcionquecambia()" value="Cambiar texto"/>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
+    <script>
+        angular.module('hola', []).controller('pruebafuncion', function ($scope) {
+            $scope.textoacambiar = "Este texto cambia";
+            $scope.funcionquecambia = function () {
+                $scope.textoacambiar = "Que tocas gil";
+            }
+        });
+
+    </script>
+</body>
+
+</html>
